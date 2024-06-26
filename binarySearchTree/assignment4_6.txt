@@ -1,0 +1,17 @@
+buildFromInputString(const std::string input): 
+
+The big O complexity of this function stems from the number of nodes extracted from the string, and the insert function. 
+we will call the number of nodes extracted "N". We know that the while loop will run N times,
+and so will insert. Insert take O(n) time in worst case because it if it is constantly inserting a smaller number than the last
+it will just build linearly. Therefore the O(N) function runs N times, so the complexity is O(N^2).
+
+if we assume that the tree structure is near balanced and the input is randomized, then the insert would be O(logM) where M is the 
+number of nodes in the tree at that time. this would make the big O = O(N*LogM).
+
+
+int BST<T>::height(BSTNode *t) const
+
+In the worst-case scenario, the function will go through the entire height of the tree, from the root to a leaf node. 
+The function has a recursive call on both the left and right subtrees and then computes the maximum of the heights of these subtrees. 
+this means that almost all the nodes are visited twice except for the leaf nodes, so its time is realistically closer to 2n. but after simplifying,
+it becomes O(n), where n is the number of nodes in the tree.

@@ -1,0 +1,16 @@
+worst-case time complexity
+
+    the worst case time complexity of the contains(const T&) is O(N), where N is the number of elements chained at the index calculated by the myHash function. this is
+    because the worst case is if the item is the the last time in the list, as you would have to iterate through the entire list to find out its the last element.
+
+    myHash = O(1)
+    find() = O(N)
+
+    O(N + 1) = O(N) 
+
+
+average-case time 
+
+    the average case would also be O(N), or really big theta(N), where N is the number of elements chained at the index calculated by the myHash function. This is because O(N)
+    is the upper and lower bound, because it is linear. a easy explaination is that there is a equal chance for the targeted item to be at the front of the list as there is for it 
+    to be at the back. 

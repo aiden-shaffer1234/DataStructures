@@ -1,0 +1,114 @@
+﻿Time Complexity Analysis
+
+
+Erase(iterator itr) = O(n)
+
+
+        My erase function uses the complexity of O(n) where n is equal to the size of the vector. i know this for the following reasons:
+
+
+1. To begin, it starts with 2 assignments that have a constant run time, which is the fastest so it won't affect the overall run time significantly;
+2. Then we enter a while loop. This while loop is meant to find the target index in which I am erasing, so in the worst case, it will run from begin() to end() - 1 which is n times. The worst case is if we are deleting the last element;
+   1. As a sub note, this while loop contains 2 increments and a comparison per cycle. So 3n operations is the worst case. But that gets adjusted to O(n)
+   2. We will call the index we are finding targetIndex
+3. The final step is to shift everything left of the found index over to the left 1, effectively overwriting the targeted index and “deleting” it. This will run (n - targetIndex) times.
+   1. The loop includes an increment, an assignment , a comparison and an addition each loop. So 4n operations which adjusts to O(n) in worst case
+4. Finally, it decrements the size and return the result which is fast and happens at constant time
+
+
+In conclusion, when you look at the while loop and the for loop together, they are connected. You will notice that the number of loops the while loop does plus the number of loops the forloop does is equal to n. Therefore concluding the worst case is O(n).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+matrix<Object> operator*(matrix<Object> & m1, matrix<Object> & m2)
+
+
+There are two major time complexities to analyze when looking at this function. So have you have to find both and compare what takes longer
+1. the object initializing that happens when we make the matrix to hold the result.
+2. the calculation and storing of the result. 
+
+
+Object Initialization = O(N^2)
+Variables
+N = m2 number of columns = m1 number of rows
+
+
+The object initialization has a O(N^2) time complexity because if you look at the constructor of the two integer parameter matrix, you see it does 2 things;
+1. Initializes the vector that will hold the other vectors
+   1. This has the complexity of O(N) since the vector constructor only contains a for loop that runs M times
+2. Initialize each row of the larger vector as a vector.
+   1. Each row has an O(N) complexity because of the same vector constructor that initializes the bigger constructor.
+   2. This constructor is run M times, once for each row. 
+
+
+Therefore the Big O = M + (M*N) which simplifies to O(M*N)
+
+
+Calculating results = O(M * N^2)
+
+
+Variables
+N = m2 number of columns = m1 number of rows.
+M = m1 number of columns
+
+
+This includes 3 nested for loops, therefore it will have the worst case of O(M * N^2)
+
+
+The innermost loop has M loops, and this loop is looped N times. Making the nested loop time complexity O(N*M). Then this nested loop structure is ran N times, making the final complexity O(M*N^2).
+
+
+Specifics - 
+
+
+1. Inner most loop has 4 operations per loop (+=, *, ++, <) so it has 4M operations
+   1. 4M
+2. The loop that surrounds the innermost loop has 3 operations per loop (<, 
+++, =) , and runs the for loop initialization and operations so 
+   1. 3N + N(4M) + N = 4N + N(4M)
+   3. The outermost loop has 2 operations(++, <) per loop and runs the for loop that includes a variable initialization. So in total 3 operations outside the nested loops.
+   1. 2N + N + N(4N) + N^2(4M) = N^2(4M) + 4N^2 + 3N
+
+
+N^2(4M) + 4N^2 + 3N simplifies to N^2 * M because that is the most significant part of that equation. Solidifying O(M * N^2)
+
+
+Final comparison 
+
+
+O(N^2 * M) > O(N^2) so the time comp;lexity of this function is O(N^2 * M);

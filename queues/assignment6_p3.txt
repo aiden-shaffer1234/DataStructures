@@ -1,0 +1,18 @@
+﻿1. Part 1:
+The pop of the queue is O(1) because all it does is call pop_front() method of the LinkedList nested container. The pop front method just uses conditionals to check the size of the list and then an assignment to move the head of the list to the next link and adjusts the size accordingly
+
+
+
+
+
+
+2. Part 2: 
+Variables: N = number of cities M = number of children
+
+
+The time complexity is O(N*M) because of a few reasons:
+1. in the worst case, all of the cities are pushed into the stack once, and since the queue’s size determines if the loop runs or not, it gives the while loop the complexity of O(N);
+2. For each loop, it creates a node which acts as the parent, and then checks the children of that node. It checks each child even if they have already been seen. This suggests that the second for loop has a time complexity of O(M)
+
+
+Therefore, for each loop of the while loop, the loop runs (number of destination children) times. So the O(N*M)
